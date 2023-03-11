@@ -98,6 +98,27 @@ $produit = $resultat->fetch();
 
 return $produit;
   }
-  
+ function AddVisiteur($data){
+
+    // 1- connexion BD
+    $conn = connect();
+ 
+     // 2- creation de la requette
+ 
+ $requette = "INSERT INTO visiteurs(nom, prenom, mp, email, telephone) values ('".$data['nom'].", '".$data ['prenom']."', '".$data['mp']."', '".$data['email']."', '".$data['telephone']."' )";
+ 
+ //3- execution de la requette
+ 
+ $resultat = $conn ->query($requette);
+ 
+ //4- resultat de la requette
+ 
+if ($resultat){
+  return true;
+} else {
+  return false;
+}
+
+   }
 
 ?>
