@@ -78,6 +78,26 @@ $produits = $resultat->fetchAll();
 return $produits;
 
   }
+  function getProduitById($id){
+
+   // 1- connexion BD
+   $conn = connect();
+
+    // 2- creation de la requette
+
+$requette = "SELECT * FROM produits WHERE id =$id ";
+
+//3- execution de la requette
+
+$resultat = $conn ->query($requette);
+
+//4- resultat de la requette
+
+$produit = $resultat->fetch();
+
+
+return $produit;
+  }
   
 
 ?>

@@ -3,16 +3,10 @@
 include "inc/functions.php";
 $categories = getALLCategories();
 
-if (!empty($_POST)){  //button search cliked
-//echo $_POST ['search'];
+if (isset($_GET['id'])){
+    $produit = getProduitById($_GET['id']);
 
-$produits = searchProduits($_POST['search']);
-
-}else{
-
-  $produits = getALLProducts();
 }
-
 
 ?>
 
@@ -32,20 +26,23 @@ $produits = searchProduits($_POST['search']);
 include "inc/header.php";
 ?>
       <div class="row col-12">
+        
+      <div class="card col-8 offset-2 ">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><?php echo $produit['name'] ?></h5>
+    <p class="card-text"> <?php echo $produit['description']  ?></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><?php echo $produit['prix'] ?></li>
+    <li class="list-group-item"><?php echo $produit['categories'] ?></li>
+
+  </ul>
+  
+</div>
 
       <?php
-      foreach ($produits as $produit){
-            print '<div class="row col-3">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">'.$produit['name'].'</h5>
-                  <p class="card-text">'.$produit['description'].'</p>
-                  <a href="produit.php?id= '.$produit['id'].'" class="btn btn-primary">Afficher</a>
-                </div>
-              </div>
-        </div>';
-      }
+    
      
 ?>
         
