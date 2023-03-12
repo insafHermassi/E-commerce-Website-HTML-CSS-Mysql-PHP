@@ -37,7 +37,7 @@ include "inc/header.php";
       foreach ($produits as $produit){
             print '<div class="row col-3">
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
+                <img  class="card-img-top" src="images/'.$produit['image'].'" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">'.$produit['name'].'</h5>
                   <p class="card-text">'.$produit['description'].'</p>

@@ -28,7 +28,7 @@ include "inc/header.php";
       <div class="row col-12">
         
       <div class="card col-8 offset-2 ">
-  <img class="card-img-top" src="..." alt="Card image cap">
+  <img class="card-img-top" src= "images/<?php echo $produit['image'] ?>" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title"><?php echo $produit['name'] ?></h5>
     <p class="card-text"> <?php echo $produit['description']  ?></p>
