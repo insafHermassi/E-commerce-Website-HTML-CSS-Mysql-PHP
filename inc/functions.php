@@ -104,8 +104,8 @@ return $produit;
     $conn = connect();
  
      // 2- creation de la requette
- 
- $requette = "INSERT INTO visiteurs(nom, prenom, mp, email, telephone) VALUES ('".$data['nom']."', '".$data ['prenom']."', '".$data['mp']."', '".$data['email']."', '".$data['telephone']."' )";
+ $mphash = md5($data['mp']);
+ $requette = "INSERT INTO visiteurs(nom, prenom, mp, email, telephone) VALUES ('".$data['nom']."', '".$data ['prenom']."', '". $mphash."', '".$data['email']."', '".$data['telephone']."' )";
  
  //3- execution de la requette
  
@@ -126,7 +126,7 @@ if ($resultat){
     $conn = connect();
  
      // 2- creation de la requette
- 
+ $mp = md5($data['mp']);
  $requette = "SELECT * FROM visiteurs WHERE email = '".$data['email']."' AND mp= '".$data['mp']."' ";
  
  //3- execution de la requette
