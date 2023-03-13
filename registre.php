@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+if(isset($_SESSION['nom'])){
+
+    header('location:profile.php');
+}
+
 include "inc/functions.php";
 $ShowRegistrationAlert= 0;
 $categories = getALLCategories();
