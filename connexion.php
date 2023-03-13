@@ -63,9 +63,10 @@ if (count($user) > 0){ // utilisateur connecté
 
       </form>
 
-      <div class="bg-dark text-center p-5 mt-4">
-       <p  class="text-white">Tous les droits sont reserves 2023</p>
-      </div>
+      <?php
+
+      include "inc/footer.php";
+      ?>
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

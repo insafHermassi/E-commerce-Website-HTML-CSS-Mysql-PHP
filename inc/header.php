@@ -21,17 +21,34 @@
       
               </div>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="connexion.php">connexion<span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="registre.php">registre <span class="sr-only">(current)</span></a>
-              </li>
-            
+<?php
+if (isset ($_SESSION['nom'])){
+print '<li class="nav-item active">
+<a class="nav-link" href="profile.php">profile<span class="sr-only">(current)</span></a>
+</li>';
+}else {
+  print '<li class="nav-item active">
+  <a class="nav-link" href="connexion.php">connexion<span class="sr-only">(current)</span></a>
+</li>
+<li class="nav-item active">
+  <a class="nav-link" href="registre.php">registre <span class="sr-only">(current)</span></a>
+</li>';
+}
+?>
+     
           </ul>
           <form class="form-inline my-2 my-lg-0" action ="index.php" method = "POST">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name= "search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+<?php
+if (isset($_SESSION['nom'])){
+  print '<a href="deconnexion.php" class= "btn btn-primary">Déconnexion</a>';
+
+}
+
+?>
+
           </form>
         </div>
       </nav>
