@@ -138,4 +138,24 @@ if ($resultat){
  $user = $resultat->fetch();
  return ($user);
    }
+
+
+   function ConnectAdmin($data){
+
+    // 1- connexion BD
+    $conn = connect();
+ 
+     // 2- creation de la requette
+ $mp = md5($data['mp']);
+ $requette = "SELECT * FROM administrateur WHERE email = '".$data['email']."' AND mp= '$mp' ";
+ 
+ //3- execution de la requette
+ 
+ $resultat = $conn ->query($requette);
+ 
+ //4- resultat de la requette
+ 
+ $user = $resultat->fetch();
+ return ($user);
+   }
 ?>
