@@ -41,7 +41,7 @@ include "inc/header.php";
             <div class="card" style="width: 18rem;">
                 <img  class="card-img-top" src="images/'.$produit['image'].'" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">'.$produit['name'].'</h5>
+                  <h5 class="card-title">'.$produit['nom'].'</h5>
                   <p class="card-text">'.$produit['description'].'</p>
                   <a href="produit.php?id= '.$produit['id'].'" class="btn btn-primary">Afficher</a>
                 </div>

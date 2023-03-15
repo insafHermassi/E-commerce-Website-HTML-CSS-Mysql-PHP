@@ -30,12 +30,12 @@ include "inc/header.php";
       <div class="card col-8 offset-2 ">
   <img class="card-img-top" src= "images/<?php echo $produit['image'] ?>" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title"><?php echo $produit['name'] ?></h5>
+    <h5 class="card-title"><?php echo $produit['nom'] ?></h5>
     <p class="card-text"> <?php echo $produit['description']  ?></p>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item"><?php echo $produit['prix'] ?></li>
-    <li class="list-group-item"><?php echo $produit['categories'] ?></li>
+    <li class="list-group-item"><?php echo $produit['categorie'] ?></li>
 
   </ul>
   
