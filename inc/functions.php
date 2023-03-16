@@ -147,8 +147,7 @@ if ($resultat){
  
      // 2- creation de la requette
  $mp = md5($data['mp']);
- $email = $data['email'];
- $requette = "SELECT * FROM administrateur WHERE email = '$email' AND mp= '$mp' ";
+ $requette = "SELECT * FROM administrateur WHERE email = '".$data['email']."' AND mp= '$mp' ";
  
  //3- execution de la requette
  
