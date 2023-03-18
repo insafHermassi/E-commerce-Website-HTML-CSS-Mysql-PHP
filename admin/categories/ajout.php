@@ -18,6 +18,6 @@ $resultat = $conn ->query($requette);
 
 //4- resultat de la requette
 if ($resultat){
-   header ('location: liste.php');
+   header ('location: liste.php?ajout=ok');
 }
 ?>

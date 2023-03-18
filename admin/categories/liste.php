@@ -99,9 +99,16 @@ $categories = getALLCategories();
 <div>
 
 <?php
-if (isset($_GET['ajout']) && $_GET ['ajout'] == "%20ok"){
+if (isset($_GET['ajout']) && $_GET ['ajout'] == "ok"){
     print '
-<div class= "alert alert-sucess"> Categorie Ajoutée avec Sucess
+<div class= "alert alert-success"> Categorie Ajoutée avec Sucess
+
+</div>';
+
+}
+if (isset($_GET['delete']) && $_GET ['delete'] == "ok"){
+  print '
+<div class= "alert alert-success"> Categorie supprimée avec Sucess
 
 </div>';
 }
@@ -127,7 +134,7 @@ if (isset($_GET['ajout']) && $_GET ['ajout'] == "%20ok"){
       <td>'.$c['nom'].'</td>
       <td>'.$c['description'].'</td>
       <td><a href="http://" class = "btn btn-success">Modifier</a>
-          <a href="http://" class = "btn btn-danger">Supprimer</a></td>
+          <a href="supprimer.php?idc= '.$c['id'].'" class = "btn btn-danger">Supprimer</a></td>
     </tr>';
 }
 
