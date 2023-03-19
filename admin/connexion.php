@@ -16,7 +16,9 @@ if (!empty($_POST))// button sauvegarder clicked
 $user =  ConnectAdmin($_POST);
 
 if (is_array($user) && count($user) > 0){ // utilisateur connecté
+
   session_start();
+  
   $_SESSION['id']= $user['id'];
   $_SESSION['email'] = $user['email'];
   $_SESSION['nom'] = $user['nom'];

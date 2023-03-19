@@ -46,7 +46,7 @@ $categories = getALLCategories();
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Liste des categories</h1>
+            <h1 class="h2">Liste des produits</h1>
             <div>
               
                            <!-- Button trigger modal -->
@@ -59,31 +59,6 @@ $categories = getALLCategories();
 <!--Liste Start-->
 <div>
 
-<?php
-if (isset($_GET['ajout']) && $_GET ['ajout'] == "ok"){
-    print '
-<div class= "alert alert-success"> Categorie Ajoutée avec Sucess
-
-</div>';
-
-}
-?>
-<?php
-if (isset($_GET['delete']) && $_GET ['delete'] == "ok"){
-  print '
-<div class= "alert alert-success"> Categorie supprimée avec Sucess
-
-</div>';
-}
-?>
-<?php
-if (isset($_GET['modifier']) && $_GET ['modifier'] == "ok"){
-  print '
-<div class= "alert alert-success"> Categorie modifié avec Sucess
-
-</div>';
-}
-?>
 
             <table class="table">
   <thead>
@@ -97,17 +72,7 @@ if (isset($_GET['modifier']) && $_GET ['modifier'] == "ok"){
 
   <tbody>
     <?php
-    $i= 0;
-       foreach ($categories as $c) {
-       $i++;
-        print '<tr>
-      <th scope="row">'.$i.'</th>
-      <td>'.$c['nom'].'</td>
-      <td>'.$c['description'].'</td>
-      <td><a data-toggle="modal" data-target="#editModal '.$c['id'].'" class = "btn btn-success">Modifier</a>
-          <a href="supprimer.php?idc= '.$c['id'].'" class = "btn btn-danger">Supprimer</a></td>
-    </tr>';
-}
+
 
         ?>
     
@@ -125,7 +90,7 @@ if (isset($_GET['modifier']) && $_GET ['modifier'] == "ok"){
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ajouter Categorie</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter Produit</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
