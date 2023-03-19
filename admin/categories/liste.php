@@ -106,9 +106,19 @@ if (isset($_GET['ajout']) && $_GET ['ajout'] == "ok"){
 </div>';
 
 }
+?>
+<?php
 if (isset($_GET['delete']) && $_GET ['delete'] == "ok"){
   print '
 <div class= "alert alert-success"> Categorie supprimée avec Sucess
+
+</div>';
+}
+?>
+<?php
+if (isset($_GET['modifier']) && $_GET ['modifier'] == "ok"){
+  print '
+<div class= "alert alert-success"> Categorie modifié avec Sucess
 
 </div>';
 }
@@ -133,7 +143,7 @@ if (isset($_GET['delete']) && $_GET ['delete'] == "ok"){
       <th scope="row">'.$i.'</th>
       <td>'.$c['nom'].'</td>
       <td>'.$c['description'].'</td>
-      <td><a href="http://" class = "btn btn-success">Modifier</a>
+      <td><a data-toggle="modal" data-target="#editModal '.$c['id'].'" class = "btn btn-success">Modifier</a>
           <a href="supprimer.php?idc= '.$c['id'].'" class = "btn btn-danger">Supprimer</a></td>
     </tr>';
 }
@@ -149,7 +159,7 @@ if (isset($_GET['delete']) && $_GET ['delete'] == "ok"){
     </div>
 
 
-<!-- Modal -->
+<!-- Modal ajout-->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -181,6 +191,49 @@ if (isset($_GET['delete']) && $_GET ['delete'] == "ok"){
   </div>
 </form>
 </div>
+<?php
+  foreach ($categories as $index => $categorie) {?>
+
+<!-- Modal modifier-->
+<div class="modal fade" id="editModal <?php echo $categorie['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modifier Categorie</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="modifier.php" method= "post">
+
+        <input type="hidden" value= " <?php  echo $categorie['id'] ; ?>" name= "idc">
+        <div class="form-group">
+             
+            <input type="text" name= "nom" class="form-control" value= "<?php  echo $categorie['nom'];?>" placeholder = "nom de la categorie">
+           
+           
+        </div>
+        <div class="form-group">
+           <textarea name="description" class= "form-control"  placeholder = "description de la categorie"><?php  echo $categorie['description'];?></textarea>
+           
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="submit" class="btn btn-primary">Modifier</button>
+      </div>
+    </div> 
+
+  </div>
+</form>
+</div>
+
+<?php
+
+  }
+?>
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
